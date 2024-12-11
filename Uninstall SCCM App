@@ -1,5 +1,0 @@
-$Unique = "Name of App"
-$InstalledProducts = Get-WmiObject -Namespace 'root\cimv2\sms' -Class SMS_InstalledSoftware
-$App1 = $InstalledProducts | where { $_.ARPDisplayName -imatch $Unique }
-$CachedMSI = $App1.LocalPackage
-Start-Process 'msiexec.exe' -ArgumentList "/x $CachedMSI /qn /norestart"
