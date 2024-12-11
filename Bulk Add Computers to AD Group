@@ -1,5 +1,0 @@
-$devices = Get-Content "CSV NAME.csv"
-
-foreach ($device in $devices) {
-    Add-ADGroupMember -Identity GROUP NAME -Members "$device$" -ErrorAction SilentlyContinue
-}
