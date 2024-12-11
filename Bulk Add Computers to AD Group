@@ -1,5 +1,5 @@
-$devices = Get-Content "devices.csv"
+$devices = Get-Content "CSV NAME.csv"
 
 foreach ($device in $devices) {
-    Add-ADGroupMember -Identity GPO-GG-EPS-B-WUA-ALL-DENY -Members "$device$" -ErrorAction SilentlyContinue
+    Add-ADGroupMember -Identity GROUP NAME -Members "$device$" -ErrorAction SilentlyContinue
 }
