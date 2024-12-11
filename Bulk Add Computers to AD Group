@@ -1,0 +1,5 @@
+$devices = Get-Content "devices.csv"
+
+foreach ($device in $devices) {
+    Add-ADGroupMember -Identity GPO-GG-EPS-B-WUA-ALL-DENY -Members "$device$" -ErrorAction SilentlyContinue
+}
