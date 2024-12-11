@@ -1,0 +1,72 @@
+Dim FSO1, FSO2, FSO3, objTextFile1, objTextFile2, objTextFile3, wshShell
+
+Set FSO1 = CreateObject("Scripting.FileSystemObject")
+
+Set FSO3 = CreateObject("Scripting.FileSystemObject")
+
+Set objTextFile1 = FSO1.OpenTextFile("input.txt", 1)
+
+Set objTextFile3 = FSO3.OpenTextFile("output.txt", 2, True)
+
+Set WshShell = WScript.CreateObject("WScript.Shell")
+
+
+Do While objTextFile1.AtEndOfStream <> True 'read txt file of packages to be excluded
+
+line = lcase(objtextfile1.readline)
+
+line = Trim(line)
+
+Do While Left(line,1) = Chr(160)
+
+line = right(line, Len(line)-1)
+
+Loop
+
+Do While Right(line,1) = Chr(160)
+
+line = left(line, Len(line)-1)
+
+Loop
+
+name = Split(line,",")
+
+For Each machine In name
+
+machine = Trim(machine)
+
+Do While Left(machine,1) = Chr(160)
+
+machine = right(machine, Len(machine)-1)
+
+Loop
+
+Do While Right(machine,1) = Chr(160)
+
+machine = left(machine, Len(machine)-1)
+
+Loop
+
+'wscript.echo machine
+
+If objTextFile1.AtEndOfStream <> True Then
+
+objTextFile3.Write String(1,34) & machine & String(1,34) & ","
+
+Else
+
+objTextFile3.Write String(1,34) & machine & String(1,34)
+
+End If
+
+Next
+
+Loop
+
+
+objTextFile1.close
+
+objtextfile3.Close
+
+
+WScript.Echo "Done"
