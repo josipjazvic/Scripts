@@ -1,0 +1,18 @@
+# Prompt for a string input for the OU query
+$name = Read-Host -Prompt "Enter the name of the OU you want to query. Options: Madrid Office,Malta Office, Ryanair Bases, etc. "
+$OUpath = 'OU='+ $name +',DC=cho,DC=corp,DC=ryanair,DC=com'
+# Promt for yhe name of the exported file
+$file_name = Read-Host -Prompt "Name your exported file ( Will be created into \temp folder)."
+$ExportPath = 'C:\temp\'+$file_name+'.csv'
+#It needs a variable for the OS versions 22621, 22631, etc
+$version = Read-Host -Prompt "Enter the version of the OS you want to filter by (22000,22621,22631) "
+if ($version -ne 0)
+{Switch ($version)
+	{
+    22000 {Get-ADComputer -SearchBase $OUpath -Filter {OperatingSystemVersion -like "10.0 (22000)"} | select name | Export-Csv -NoType $ExportPath; Break}
+    22621 {Get-ADComputer -SearchBase $OUpath -Filter {OperatingSystemVersion -like "10.0 (22621)"} | select name | Export-Csv -NoType $ExportPath; Break}
+	22631 {Get-ADComputer -SearchBase $OUpath -Filter {OperatingSystemVersion -like "10.0 (22631)"} | select name | Export-Csv -NoType $ExportPath; Break}
+	}
+}
+Else
+{"Incorrect value. Try again."}
