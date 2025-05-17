@@ -1,1 +1,1 @@
-Publishing my projects and scripts as I learn 📜👋
+- Publishing my projects and scripts as I learn 📜👋
