@@ -1,1 +1,1 @@
-Posting my projects and scripts as I learn 📜👋
+# Posting my projects and scripts as I learn 📜👋
