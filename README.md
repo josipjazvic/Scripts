@@ -1,1 +1,2 @@
-- Here I publish my projects and scripts as I learn 📜👋
+- Hello👋
+- Currently learning Python and publishing scripts here 📄
