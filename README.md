@@ -1,2 +1,2 @@
 - Hello👋
-- Currently learning Python and publishing scripts here 📄
+
